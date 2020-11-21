@@ -1,5 +1,5 @@
 # DO NOT MODIFY THIS FILE
-# Run me via: python3 -m unittest test_max_heap
+# Run me via: python -m unittest test_max_heap
 
 import unittest
 import time

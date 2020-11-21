@@ -3,8 +3,9 @@
 # If you can't figure it out recursively, use a loop. (But then refactor
 # your implementation into a recursive one!)
 # Your implementation should pass the tests in test_max_heap.py.
-# YOUR NAME
+# Ryan Earl
 
 class MaxHeap:
-
+   def __init__(self): 
+        return None
    pass
