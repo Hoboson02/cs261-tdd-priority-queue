@@ -75,43 +75,43 @@ class TestNaivePriorityQueue(unittest.TestCase):
         pq.enqueue(j)
         self.assertEqual(j, pq.dequeue())
 
-    # def test_dequeue_one_internal(self):
-    #     """
-    #     Dequeuing from a single-element queue removes it from the internal list.
-    #     """
-    #     pq = NaivePriorityQueue()
-    #     job = Job(5, 'crown')
-    #     pq.enqueue(job)
-    #     self.assertEqual(1, len(pq.data))
-    #     _ = pq.dequeue()
-    #     self.assertEqual(0, len(pq.data))
+    def test_dequeue_one_internal(self):
+        """
+        Dequeuing from a single-element queue removes it from the internal list.
+        """
+        pq = NaivePriorityQueue()
+        job = Job(5, 'crown')
+        pq.enqueue(job)
+        self.assertEqual(1, len(pq.data))
+        _ = pq.dequeue()
+        self.assertEqual(0, len(pq.data))
 
     # # Hint: NaivePriorityQueues perform a linear search. Don't optimize.
 
-    # def test_dequeue_two(self):
-    #     """
-    #     Dequeuing from a two-element queue returns the one with highest priority.
-    #     """
-    #     pq = NaivePriorityQueue()
-    #     lower_priority = Job(1, 'of')
-    #     higher_priority = Job(3, 'the')
-    #     pq.enqueue(higher_priority)
-    #     pq.enqueue(lower_priority)
-    #     self.assertEqual(higher_priority, pq.dequeue())
+    def test_dequeue_two(self):
+        """
+        Dequeuing from a two-element queue returns the one with highest priority.
+        """
+        pq = NaivePriorityQueue()
+        lower_priority = Job(1, 'of')
+        higher_priority = Job(3, 'the')
+        pq.enqueue(higher_priority)
+        pq.enqueue(lower_priority)
+        self.assertEqual(higher_priority, pq.dequeue())
 
-    # def test_dequeue_two_internal(self):
-    #     """
-    #     Dequeuing from a two-element queue removes the job with the highest
-    #     priority from the list.
-    #     """
-    #     pq = NaivePriorityQueue()
-    #     lower_priority = Job(1, 'metropolis')
-    #     higher_priority = Job(3, 'shining')
-    #     pq.enqueue(higher_priority)
-    #     pq.enqueue(lower_priority)
-    #     _ = pq.dequeue()
-    #     self.assertEqual(lower_priority, pq.data[0])
-    #     self.assertEqual(1, len(pq.data))
+    def test_dequeue_two_internal(self):
+        """
+        Dequeuing from a two-element queue removes the job with the highest
+        priority from the list.
+        """
+        pq = NaivePriorityQueue()
+        lower_priority = Job(1, 'metropolis')
+        higher_priority = Job(3, 'shining')
+        pq.enqueue(higher_priority)
+        pq.enqueue(lower_priority)
+        _ = pq.dequeue()
+        self.assertEqual(lower_priority, pq.data[0])
+        self.assertEqual(1, len(pq.data))
 
     # def test_dequeue_three(self):
     #     """
