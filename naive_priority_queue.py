@@ -12,4 +12,20 @@ class NaivePriorityQueue:
         self.data.append(value)
 
     def dequeue(self): 
-        return self.data.pop(0)
+        if self.is_empty(): 
+            return None 
+        highest_priority = 0 
+        priority = 0
+        while priority < len(self.data): 
+            if self.data[highest_priority] < self.data[priority]: 
+                highest_priority = priority 
+            priority = priority + 1
+        return self.data.pop(highest_priority)
+
+        
+        
+
+
+
+    def is_empty(self): 
+        return len(self.data) == 0
