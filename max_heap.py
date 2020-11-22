@@ -43,4 +43,8 @@ class MaxHeap:
           elif self._size() > self._left_child_index(value): 
                return self._data[self._left_child_index(value)]
 
-
+     def _right_child(self, value): 
+          if self._size() < self._right_child_index(value): 
+               return None
+          elif self._size() > self._right_child_index(value): 
+               return self._data[self._right_child_index(value)]
