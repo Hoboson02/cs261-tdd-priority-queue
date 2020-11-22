@@ -37,3 +37,7 @@ class MaxHeap:
      def _parent(self, value): 
           return self._value_at(self._parent_index(value))
 
+     def _left_child(self, value): 
+          if self._size() < self._left_child_index(value): 
+               return None
+
