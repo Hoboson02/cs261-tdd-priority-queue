@@ -25,6 +25,7 @@ class MaxHeap:
                return self._data[value]
           else: raise IndexError
 
-
+     def _left_child_index(self, index): 
+          return 2 * index + 1
 
      
