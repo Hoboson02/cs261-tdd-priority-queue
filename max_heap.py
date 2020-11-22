@@ -79,3 +79,6 @@ class MaxHeap:
           temp_value = self._data[value]
           self._data[value] = self._data[value2]
           self._data[value2] = temp_value
+     
+     def _sift_down(self, value): 
+          self._data[0] = self._data[len(self._data)-1]
