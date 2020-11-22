@@ -6,13 +6,20 @@
 # Ryan Earl
 
 class MaxHeap:
-   def __init__(self): 
+     def __init__(self): 
         self._data = []
         return None
-   pass
+     pass
 
-   def _size(self): 
+     def _size(self): 
         return len(self._data)
 
-   def _is_empty(self): 
+     def _is_empty(self): 
         return len(self._data) == 0 
+
+     def _last_index(self): 
+          return len(self._data) -1
+
+
+
+     
