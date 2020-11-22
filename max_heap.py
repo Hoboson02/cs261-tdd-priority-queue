@@ -55,6 +55,9 @@ class MaxHeap:
      def _has_left_child(self, value):
           if self._left_child(value) !=None:
                return True
+     
+     def _has_children(self, value): 
+          return (self._has_left_child(value) and self._has_left_child(value))
 
      def _greater_child_index(self, value): 
           if self._right_child(value) is None and self._left_child(value) is None:
@@ -69,4 +72,10 @@ class MaxHeap:
           elif self._left_child(value) is not None and self._right_child(value) is None:
                return self._has_left_child(value)
 
-          
+     def _obeys_heap_property_at_index(self, value): 
+          return (not self._has_left_child(value) or self._left_child(value) <= self._data[value]) and (not self._has_right_child(value) or self._right_child(value) <= self._data[value])
+
+     def _swap(self, value, value2): 
+          temp_value = self._data[value]
+          self._data[value] = self._data[value2]
+          self._data[value2] = temp_value
