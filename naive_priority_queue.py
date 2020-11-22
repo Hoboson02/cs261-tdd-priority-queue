@@ -22,10 +22,5 @@ class NaivePriorityQueue:
             priority = priority + 1
         return self.data.pop(highest_priority)
 
-        
-        
-
-
-
     def is_empty(self): 
         return len(self.data) == 0
