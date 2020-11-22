@@ -48,6 +48,9 @@ class MaxHeap:
                return None
           elif self._size() > self._right_child_index(value): 
                return self._data[self._right_child_index(value)]
+     
+     # def _children(self, value): 
+     #      return (self._left_child(value) and self._left_child(value))
 
      def _has_right_child(self, value): 
           if self._right_child(value) !=None:
@@ -56,8 +59,8 @@ class MaxHeap:
           if self._left_child(value) !=None:
                return True
      
-     def _has_children(self, value): 
-          return (self._has_left_child(value) and self._has_left_child(value))
+     # def _has_children(self, value): 
+     #      return (self._has_left_child(value) and self._has_left_child(value))
 
      def _greater_child_index(self, value): 
           if self._right_child(value) is None and self._left_child(value) is None:
@@ -79,6 +82,16 @@ class MaxHeap:
           temp_value = self._data[value]
           self._data[value] = self._data[value2]
           self._data[value2] = temp_value
+
+     def _minimum(self): 
+          if self.left == None: 
+               return self
+          else: 
+               return self.left.minimum() 
      
      def _sift_down(self, value): 
-          self._data[0] = self._data[len(self._data)-1]
+          # self._data[0] = self._data[len(self._data)-1]
+          if self._obeys_heap_property_at_index(value) is False: 
+               self._swap(self._greater_child_index(value), self._minimum(value))
+               self._sift_down()
+               
