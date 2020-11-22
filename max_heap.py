@@ -19,6 +19,11 @@ class MaxHeap:
 
      def _last_index(self): 
           return len(self._data) -1
+     
+     def _value_at(self, value): 
+          if 0 <= value <= self._size(): 
+               return self._data[value]
+          else: raise IndexError
 
 
 
