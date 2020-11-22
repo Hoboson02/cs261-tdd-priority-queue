@@ -10,3 +10,6 @@ class MaxHeap:
         self._data = []
         return None
    pass
+
+   def _size(self): 
+        return len(self._data)
