@@ -101,5 +101,5 @@ class MaxHeap:
                return
           else: 
                self._swap(value, self._parent_index(value))
-               
+               self._sift_up(self._parent_index(value))
                
