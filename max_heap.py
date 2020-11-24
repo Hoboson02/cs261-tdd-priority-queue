@@ -105,3 +105,4 @@ class MaxHeap:
                
      def insert(self, value): 
           self._data.append(value)
+          self._sift_up(self._last_index())
