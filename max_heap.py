@@ -90,12 +90,11 @@ class MaxHeap:
                return self.left.minimum() 
      
      def _sift_down(self, value): 
-          if self._has_left_child or self._has_right_child: 
-               if self._obeys_heap_property_at_index(value) is False: 
-                    if self._data[value] <  self._left_child(value) or self._right_child(value):
-                         self._swap(value, self._greater_child_index(value))
-                         print("This is working?")
-                         self._sift_down(value)
-                    else: return False
+          if self._obeys_heap_property_at_index(value): 
+               return 
+          greater = self._greater_child_index(value)
+          self._swap(value, greater)
+          return self._sift_down(greater)
+                         
 
                
