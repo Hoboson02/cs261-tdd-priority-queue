@@ -96,5 +96,7 @@ class MaxHeap:
           self._swap(value, greater)
           return self._sift_down(greater)
                          
-
+     def _sift_up(self, value): 
+          if self._obeys_heap_property_at_index(value):
+               return
                
