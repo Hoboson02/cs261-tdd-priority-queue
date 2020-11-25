@@ -110,6 +110,7 @@ class MaxHeap:
      def delete(self): 
           if self._is_empty(): 
                return None
+          self._swap(0, self._size()-1)
           remove = self._data.pop()
           return remove
 
