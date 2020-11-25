@@ -1283,49 +1283,49 @@ class TestMaxHeap(unittest.TestCase):
         self.assertEqual(5, h._data[2])
         self.assertEqual(2, h._data[3])
 
-    # def test_delete_larger_left_five_root(self):
-    #     """
-    #     Deleting when there are five elements in the heap removes the root element
-    #     and returns it, leaving the larger of the two children as the new root.
-    #     The leaf that was made the new root sifts down as far as it needs to,
-    #     to obey the heap property.
-    #         10            8
-    #        /  \    =>    /  \
-    #       8    5        2    5
-    #      / \           /
-    #     2   1         1
-    #     """
-    #     h = MaxHeap()
-    #     h.insert(10)
-    #     h.insert(8)
-    #     h.insert(5)
-    #     h.insert(2)
-    #     h.insert(1)
-    #     self.assertEqual(10, h.delete())
-    #     self.assertEqual(4, len(h._data))
-    #     self.assertEqual(8, h._data[0])
-    #     self.assertEqual(2, h._data[1])
-    #     self.assertEqual(5, h._data[2])
-    #     self.assertEqual(1, h._data[3])
+    def test_delete_larger_left_five_root(self):
+        """
+        Deleting when there are five elements in the heap removes the root element
+        and returns it, leaving the larger of the two children as the new root.
+        The leaf that was made the new root sifts down as far as it needs to,
+        to obey the heap property.
+            10            8
+           /  \    =>    /  \
+          8    5        2    5
+         / \           /
+        2   1         1
+        """
+        h = MaxHeap()
+        h.insert(10)
+        h.insert(8)
+        h.insert(5)
+        h.insert(2)
+        h.insert(1)
+        self.assertEqual(10, h.delete())
+        self.assertEqual(4, len(h._data))
+        self.assertEqual(8, h._data[0])
+        self.assertEqual(2, h._data[1])
+        self.assertEqual(5, h._data[2])
+        self.assertEqual(1, h._data[3])
 
-    # def test_delete_omg(self):
-    #     """
-    #     Lots of deletions should result in the MaxHeap obeying the max-heap
-    #     property at every node in the tree, and the root always being the largest
-    #     value in the tree.
-    #     """
-    #     h = MaxHeap()
-    #     for _ in range(100):
-    #         h.insert(random.randint(1, 1000))
-    #     previous_root = h._data[0] + 1 # Seed a value larger than anything in the heap.
-    #     while len(h._data) > 0:
-    #         latest_root = h.delete()
-    #         self.assertTrue(previous_root >= latest_root)
-    #         for i in reversed(range(len(h._data))):
-    #             if (i - 1) // 2 < 0:
-    #                 break
-    #             self.assertTrue(h._data[i] <= h._data[(i - 1) // 2])
-    #         previous_root = latest_root
+    def test_delete_omg(self):
+        """
+        Lots of deletions should result in the MaxHeap obeying the max-heap
+        property at every node in the tree, and the root always being the largest
+        value in the tree.
+        """
+        h = MaxHeap()
+        for _ in range(100):
+            h.insert(random.randint(1, 1000))
+        previous_root = h._data[0] + 1 # Seed a value larger than anything in the heap.
+        while len(h._data) > 0:
+            latest_root = h.delete()
+            self.assertTrue(previous_root >= latest_root)
+            for i in reversed(range(len(h._data))):
+                if (i - 1) // 2 < 0:
+                    break
+                self.assertTrue(h._data[i] <= h._data[(i - 1) // 2])
+            previous_root = latest_root
 
 
 #                                                 .''.

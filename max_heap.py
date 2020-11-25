@@ -26,10 +26,10 @@ class MaxHeap:
           else: raise IndexError
 
      def _left_child_index(self, value): 
-          return 2 * value + 1
+          return (2 * value) + 1
 
      def _right_child_index(self, value): 
-          return 2 * value + 2
+          return (2 * value) + 2
 
      def _parent_index(self, value): 
           return (value -1) // 2
@@ -53,17 +53,17 @@ class MaxHeap:
      #      return (self._left_child(value) and self._left_child(value))
 
      def _has_right_child(self, value): 
-          if self._right_child(value) !=None:
+          if self._right_child(value) is not None:
                return True
      def _has_left_child(self, value):
-          if self._left_child(value) !=None:
+          if self._left_child(value) is not None:
                return True
      
      # def _has_children(self, value): 
      #      return (self._has_left_child(value) and self._has_left_child(value))
 
      def _greater_child_index(self, value): 
-          if self._right_child(value) is None and self._left_child(value) is None:
+          if self._has_right_child(value) is None and self._has_left_child(value) is None:
             return None
 
           elif self._left_child(value) is not None and self._right_child(value) is not None:
@@ -73,7 +73,7 @@ class MaxHeap:
                     return self._left_child_index(value)
 
           elif self._left_child(value) is not None and self._right_child(value) is None:
-               return self._has_left_child(value)
+               return self._left_child_index(value)
 
      def _obeys_heap_property_at_index(self, value): 
           return (not self._has_left_child(value) or self._left_child(value) <= self._data[value]) and (not self._has_right_child(value) or self._right_child(value) <= self._data[value])
@@ -99,9 +99,8 @@ class MaxHeap:
      def _sift_up(self, value): 
           if value == 0 or self._obeys_heap_property_at_index(self._parent_index(value)):
                return
-          else: 
-               self._swap(value, self._parent_index(value))
-               self._sift_up(self._parent_index(value))
+          self._swap(value, self._parent_index(value))
+          self._sift_up(self._parent_index(value))
                
      def insert(self, value): 
           self._data.append(value)
@@ -110,10 +109,11 @@ class MaxHeap:
      def delete(self): 
           if self._is_empty(): 
                return None
-          self._swap(0, self._size()-1)
-          remove = self._data.pop()
-          self._sift_down(0)
-          return remove
+          else: 
+               self._swap(0, self._size()-1)
+               remove = self._data.pop()
+               self._sift_down(0)
+               return remove
 
      
 
