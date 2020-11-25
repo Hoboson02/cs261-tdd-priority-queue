@@ -7,7 +7,9 @@
 from max_heap import MaxHeap
 
 class PriorityQueue:
+    heap = MaxHeap()
     def __init__(self): 
-        
         return None
     pass
+
+    
