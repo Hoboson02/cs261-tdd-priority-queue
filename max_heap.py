@@ -112,6 +112,7 @@ class MaxHeap:
                return None
           self._swap(0, self._size()-1)
           remove = self._data.pop()
+          self._sift_down(0)
           return remove
 
      
